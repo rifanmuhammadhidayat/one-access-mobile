@@ -12,34 +12,23 @@
       "resizeMode": "cover",
       "backgroundColor": "#0ba7e0"
     },
-    "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.rifanmuhammadhidayat.gagasoneaccess",
-      "infoPlist": {
-        "ITSAppUsesNonExemptEncryption": false
-      }
-    },
     "android": {
       "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "cover",
-      "backgroundColor": "#0ba7e0"
-    },
+        "image": "./assets/splash.png",
+        "resizeMode": "cover",
+        "backgroundColor": "#0ba7e0",
+        "mdpi": "./assets/splash.png",
+        "hdpi": "./assets/splash.png",
+        "xhdpi": "./assets/splash.png",
+        "xxhdpi": "./assets/splash.png",
+        "xxxhdpi": "./assets/splash.png"
+      },
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon-one-access.png",
         "backgroundColor": "#0ba7e0"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false,
       "package": "com.rifanmuhammadhidayat.gagasoneaccess"
-    },
-    "web": {
-      "favicon": "./assets/icon-one-access.png"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "aeddf969-9ed5-4171-9db9-118813e26d92"
-      }
     }
   }
 }
