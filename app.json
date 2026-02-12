@@ -20,6 +20,11 @@
       }
     },
     "android": {
+      "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#0ba7e0"
+    },
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon-one-access.png",
         "backgroundColor": "#0ba7e0"
