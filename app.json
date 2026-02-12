@@ -30,6 +30,7 @@
       "edgeToEdgeEnabled": true,
       "package": "com.rifanmuhammadhidayat.gagasoneaccess"
     },
+    "extra": { "eas": { "projectId": "aeddf969-9ed5-4171-9db9-118813e26d92" } },
     "plugins": [
          [
            "expo-build-properties",
