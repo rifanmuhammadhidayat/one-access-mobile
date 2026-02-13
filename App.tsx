@@ -1,32 +1,67 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, View, Image, StatusBar, Animated } from "react-native";
 import { WebView } from "react-native-webview";
-import * as SplashScreen from "expo-splash-screen";
-import { useEffect, useState } from "react";
-
-SplashScreen.preventAutoHideAsync();
+import { useEffect, useState, useRef } from "react";
 
 export default function App() {
-  const [ready, setReady] = useState(false);
+  const [showSplash, setShowSplash] = useState(true);
+  const fadeAnim = useRef(new Animated.Value(1)).current;
 
   useEffect(() => {
-    // Simulasi loading (ganti dengan logika loading sebenarnya)
-    setTimeout(async () => {
-      setReady(true);
-      await SplashScreen.hideAsync();
-    }, 2000); // 2 detik
+    const timer = setTimeout(() => {
+      // Fade out animation
+      Animated.timing(fadeAnim, {
+        toValue: 0,
+        duration: 300,
+        useNativeDriver: true,
+      }).start(() => {
+        setShowSplash(false);
+      });
+    }, 2500);
+
+    return () => clearTimeout(timer);
   }, []);
 
-  if (!ready) return null;
+  if (showSplash) {
+    return (
+      <Animated.View style={[styles.splashContainer, { opacity: fadeAnim }]}>
+        <StatusBar 
+          backgroundColor="#0ba7e0" 
+          barStyle="light-content" 
+          translucent={false}
+        />
+        <Image
+          source={require("./assets/splash.png")}
+          style={styles.splashImage}
+          resizeMode="cover"
+        />
+      </Animated.View>
+    );
+  }
 
   return (
-    <WebView
-      style={styles.container}
-      source={{ uri: "https://gagas-one-access.vercel.app/public" }}
-    />
+    <>
+      <StatusBar 
+        backgroundColor="#0ba7e0" 
+        barStyle="light-content" 
+        translucent={false}
+      />
+      <WebView
+        style={styles.container}
+        source={{ uri: "https://https://gagas-one-access.vercel.app/public" }}
+      />
+    </>
   );
 }
 
 const styles = StyleSheet.create({
+  splashContainer: {
+    flex: 1,
+    backgroundColor: "#0ba7e0",
+  },
+  splashImage: {
+    width: "100%",
+    height: "100%",
+  },
   container: {
     flex: 1,
   },
