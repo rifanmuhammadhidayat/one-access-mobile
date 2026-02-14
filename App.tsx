@@ -24,9 +24,9 @@ export default function App() {
   if (showSplash) {
     return (
       <Animated.View style={[styles.splashContainer, { opacity: fadeAnim }]}>
-        <StatusBar 
-          backgroundColor="#0ba7e0" 
-          barStyle="light-content" 
+        <StatusBar
+          backgroundColor="#0ba7e0"
+          barStyle="light-content"
           translucent={false}
         />
         <Image
@@ -40,14 +40,17 @@ export default function App() {
 
   return (
     <>
-      <StatusBar 
-        backgroundColor="#0ba7e0" 
-        barStyle="light-content" 
+      <StatusBar
+        backgroundColor="#0ba7e0"
+        barStyle="light-content"
         translucent={false}
       />
       <WebView
         style={styles.container}
-        source={{ uri: "https://https://gagas-one-access.vercel.app/public" }}
+        source={{ uri: "https://gagas-one-access.vercel.app/public" }}
+        javaScriptEnabled
+        domStorageEnabled
+        startInLoadingState
       />
     </>
   );
